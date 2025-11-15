@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from config import redis_client, TASK_QUEUE, TASK_STATUS
+from src.taskqueueworker.config import redis_client, TASK_QUEUE, TASK_STATUS
 import json
 import uuid
 from datetime import datetime

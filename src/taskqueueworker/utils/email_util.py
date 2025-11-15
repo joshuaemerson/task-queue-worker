@@ -5,7 +5,7 @@ import os
 
 load_dotenv()  # loads .env into environment variables
 
-def send_email(subject: str, recipient: str, content: str, ):
+def send_email(subject: str, recipient: str, content: str):
     """
     Simple SMTP email client util
 
@@ -16,11 +16,14 @@ def send_email(subject: str, recipient: str, content: str, ):
     """
     msg = EmailMessage()
     msg["Subject"] = subject
-    msg["From"] = os.getenv("GMAIL_ADDRESS")
+    msg["From"] = os.getenv('GMAIL_ADDRESS')
     msg["To"] = recipient
     msg.set_content(content)
 
+    print(os.environ.get('GMAIL_ADDRESS'))
+
     # Ensures the connection is automatically closed afterward
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-        smtp.login(os.getenv("GMAIL_ADDRESS"), os.getenv("GMAIL_APP_PASSWORD"))
+        smtp.login(os.getenv("GMAIL_ADDRESS").strip(),
+                   os.getenv("GMAIL_APP_PASSWORD").strip())
         smtp.send_message(msg)
