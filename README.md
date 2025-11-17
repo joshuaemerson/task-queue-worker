@@ -27,7 +27,7 @@ The system consists of three main components:
 ## ✨ Features
 
 - **Horizontal Auto-Scaling**: Workers automatically scale from 2-10 replicas based on CPU usage
-- **Multiple Task Types**: Built-in support for email, image processing, reports, and data processing
+- **Task Type**: Built-in support for sending emails
 - **Real-time Status Tracking**: Monitor task progress via REST API endpoints
 - **Health Checks**: Kubernetes liveness and readiness probes for reliability
 - **Resource Management**: Defined CPU and memory limits for optimal performance
@@ -304,3 +304,4 @@ kubectl top nodes
 # HPA status and scaling metrics
 kubectl describe hpa task-worker-hpa
 ```
+
